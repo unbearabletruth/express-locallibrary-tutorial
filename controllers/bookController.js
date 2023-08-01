@@ -255,7 +255,6 @@ exports.book_update_post = [
   asyncHandler(async (req, res, next) => {
     // Extract the validation errors from a request.
     const errors = validationResult(req);
-
     // Create a Book object with escaped/trimmed data and old id.
     const book = new Book({
       title: req.body.title,
@@ -281,6 +280,7 @@ exports.book_update_post = [
           genre.checked = "true";
         }
       }
+
       res.render("book_form", {
         title: "Update Book",
         authors: allAuthors,
